@@ -7,6 +7,9 @@ from datetime import datetime
 import cv2
 import matplotlib.pyplot as plt
 
+# Mexendo no matplotlib
+#%matplotlib qt5
+
 
 # Definindo o tempo de atualização da tela
 TIME_STEP = 10
@@ -187,7 +190,7 @@ def PID_correcao_angulo(PID):
 
 while robot.step(TIME_STEP) != -1:
 
-    set_speed(1)
+    set_speed(0)
 
     # Recebendo os valores da bússola
     valuesCompass = compass.getValues()
@@ -213,11 +216,28 @@ while robot.step(TIME_STEP) != -1:
     ultimaMedida = bearing
     PID = proporcional + integral + derivativo
 
-    PID_correcao_angulo(PID)
+    #PID_correcao_angulo(PID)
 
-    img = leitura_camera(camera)
+    image = leitura_camera(camera)
 
-    cv2.imshow("camera1", img)
+    w = image.shape[1]
+    h = image.shape[0]
+
+    src = np.float32([[60, h], [210, h], [160, 85], [100, 85]])
+    #dst = np.float32([[0, 0], [0, h - 1], [w-1, h-1], [w-1, 0]])
+    dst = np.float32([[0, h-1], [w - 1, h - 1], [w - 1, 0], [0, 0]])
+
+    M = cv2.getPerspectiveTransform(src, dst)
+    invM = cv2.getPerspectiveTransform(dst, src)
+
+    warped = cv2.warpPerspective(image, M, (image.shape[1], image.shape[0]), flags=cv2.INTER_LINEAR)
+
+    img_copy = np.copy(image)
+    img_copy = cv2.cvtColor(img_copy, cv2.COLOR_BGR2RGB)
+    plt.imshow(img_copy)
+    #plt.show()
+
+    cv2.imshow("camera1", warped)
 
 
 
