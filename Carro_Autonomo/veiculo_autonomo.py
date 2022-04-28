@@ -49,6 +49,7 @@ road_head_lights = robot.getDevice('road_head_lights')
 lidar = robot.getDevice("lidar")
 Lidar.enable(lidar, TIME_STEP)
 Lidar.enablePointCloud(lidar)
+
 # Variáveis para o lidar
 grafico = [0.0, 0]
 momento = []

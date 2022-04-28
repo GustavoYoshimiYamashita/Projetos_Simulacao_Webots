@@ -1,0 +1,61 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "Pioneer 3DX (Adept Mobile Robots)"
+    "This two-wheel, two-motor differential drive robot has in addition a rear caster wheel"
+    "It is programmed to perform a simple obstacle avoidance behavior based on the values sensed by its 16 sonars"
+  ]
+  title "Pioneer 3-DX with blinking LEDs moving according to a Braitenberg rule"
+  basicTimeStep 8
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  fieldOfView 0.660595
+  orientation -0.011369262083811662 -0.9895957052053067 -0.14342621838032757 2.952868701764204
+  position -0.2911745355942186 4.825101138261475 -20.89150428372705
+  follow "Pioneer 3-DX"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 0.9 22
+  floorTileSize 2 2
+  wallThickness 0.2
+  wallHeight 0.3
+  wallAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2021b/projects/default/worlds/textures/red_brick_wall.jpg"
+      ]
+    }
+    roughness 1
+    metalness 0
+    textureTransform TextureTransform {
+      scale 11 13
+    }
+  }
+}
+DEF PIONEER_3DX Pioneer3dx {
+  translation 0.0214657 0.108172 -10.1458
+  rotation 7.421151401655972e-05 0.9998641739222281 -0.01648114678872838 3.1404356982966726
+  controller "<extern>"
+  extensionSlot [
+    SharpGP2D120 {
+      translation -0.177222 0.15 -0.085
+      rotation 0 1 0 2.3562
+      name "Sharps left"
+    }
+    SharpGP2D120 {
+      translation 0.183401 0.15 -0.0779307
+      rotation 0 -1 0 -0.7854053071795866
+      name "Sharps right"
+    }
+    SharpGP2D120 {
+      translation 0.00999938 0.15 -0.17
+      rotation 0 1 0 1.5708
+      name "Sharps front"
+    }
+  ]
+}

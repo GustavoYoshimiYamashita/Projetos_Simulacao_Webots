@@ -1,0 +1,82 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  info [
+    "Pioneer 3DX (Adept Mobile Robots)"
+    "This two-wheel, two-motor differential drive robot has in addition a rear caster wheel"
+    "It is programmed to perform a simple obstacle avoidance behavior based on the values sensed by its 16 sonars"
+  ]
+  title "Pioneer 3-DX with blinking LEDs moving according to a Braitenberg rule"
+  basicTimeStep 8
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  fieldOfView 0.660595
+  orientation -0.012824925992520995 0.9777454202514431 0.2094025177752533 2.9228337616405167
+  position -0.9170765932983341 2.740360133383913 -10.183137441271263
+}
+TexturedBackground {
+}
+RectangleArena {
+  floorSize 12 55
+  floorTileSize 2 2
+  wallHeight 0.4
+}
+DEF PIONEER_3DX Pioneer3dx {
+  hidden position_0_0 0.008224934881255808
+  hidden position_0_1 740.8399918489218
+  hidden position_0_2 739.3138756892652
+  hidden linearVelocity_0 -0.01628281835751258 -0.09611266139273456 0.31245540427999585
+  hidden angularVelocity_0 -1.6481784758453744 0.0007275461382461046 -0.023406328306256646
+  hidden rotation_1 0 1 0 0.008224934881266268
+  hidden position_1_0 -2405.2119959272313
+  hidden linearVelocity_1 -0.018667573823743788 -0.3132719362701885 0.47311077072929353
+  hidden angularVelocity_1 -1.648177844260271 -0.00028303259941087067 -0.02337388979703603
+  hidden rotation_2 -1 0 0 5.035208584629294
+  hidden linearVelocity_2 -0.019145953734509794 -0.3281823858905779 0.5066904197958488
+  hidden angularVelocity_2 -4.624894101685522 0.000885677706633059 -0.13585872580315572
+  hidden rotation_4 1 0 0 0.5758743982693633
+  hidden linearVelocity_4 -0.017572394581396433 0.014497637786135626 0.40802347195906996
+  hidden angularVelocity_4 -0.0010929189492720958 0.0004527613760311189 0.052837301020077804
+  hidden rotation_9 1 0 0 2.1019905579260443
+  hidden linearVelocity_9 -0.017584798069161786 -0.002900796740551069 0.4083248972847892
+  hidden angularVelocity_9 -2.030742472987897 0.0007881684108062559 -0.04110868201323872
+  translation -2.4576406875946324 0.09725487614253586 -4.598690745483242
+  rotation 0.00037542275248781895 0.9997391255783007 -0.022837246893877398 3.095350275413191
+  controller "<extern>"
+  supervisor TRUE
+  extensionSlot [
+    Compass {
+    }
+    Gyro {
+    }
+  ]
+}
+CardboardBox {
+  translation -0.201269 0.3 -4.94642
+}
+CardboardBox {
+  translation 0.225428 0.3 5.08162
+  name "cardboard box(1)"
+}
+FloorLight {
+  translation 0.351337 0 0.184194
+  pointLightIntensity 10
+  pointLightCastShadows TRUE
+}
+WoodenBox {
+  translation 4.01933 0.3 3.31136
+}
+WoodenBox {
+  translation 3.98789 0.3 -3.08066
+  name "wooden box(1)"
+}
+WoodenBox {
+  translation -4.22157 0.3 3.54663
+  name "wooden box(2)"
+}
+WoodenBox {
+  translation -4.21065 0.3 -2.89465
+  name "wooden box(3)"
+}
+TexturedBackgroundLight {
+}
